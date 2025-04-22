@@ -1,3 +1,9 @@
+RoboticsCode.ino is the code that we are going to run the robot on. There are some incorporated libraries and other code within the folders that are for line tracking, ultrasonic sensor, LED light, and Moving. We will be using all of these in our final code that will be in RoboticsCode.ino
+
+MAKE SURE TO PULL REQUEST BEFORE MAKING CHANGES TO THE CODE TO MAKE SURE U DONT OVERWRITE SOMEONE ELSES WORK!
+
+MAKE SURE TO COMMIT + PUSH YOUR CHANGES ONCE YOU ARE DONE EDITING THE CODE!
+
 ###  1. Requirements: 
 - Navigate the Lunar Highway: Drive along a predetermined path (the "Lunar Highway") without veering off course.
 - Obstacle Avoidance: Detect and avoid moon rocks of various sizes  scattered along the path.
