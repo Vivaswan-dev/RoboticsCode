@@ -1,6 +1,3 @@
-# RoboticsCode
-This is the code that we use for our final project in APL Robotics Spring 2025
-
 ###  1. Requirements: 
 - Navigate the Lunar Highway: Drive along a predetermined path (the "Lunar Highway") without veering off course.
 - Obstacle Avoidance: Detect and avoid moon rocks of various sizes  scattered along the path.
@@ -35,7 +32,112 @@ Start time after detecting black.
 
 
 ### Important snippets: 
+Demo1.ino
 
+```
+#include <avr/wdt.h>
+#include "DeviceDriverSet_xxx0.h"
+#include "ApplicationFunctionSet_xxx0.cpp"
 
+DeviceDriverSet_Motor AppMotor;
+Application_xxx Application_SmartRobotCarxxx0;
+
+void setup() {
+  AppMotor.DeviceDriverSet_Motor_Init();
+  delay(2000);
+  for (Application_SmartRobotCarxxx0.Motion_Control = 0; Application_SmartRobotCarxxx0.Motion_Control < 9; Application_SmartRobotCarxxx0.Motion_Control = Application_SmartRobotCarxxx0.Motion_Control + 1)
+  {
+    ApplicationFunctionSet_SmartRobotCarMotionControl(Application_SmartRobotCarxxx0.Motion_Control /*direction*/, 200 /*speed*/);
+    delay(1000);
+  }
+}
+
+void loop() {
+  
+}
+```
+ApplicationFunctionSet_xxx0.cpp
+
+```
+#include "DeviceDriverSet_xxx0.h"
+
+extern DeviceDriverSet_Motor AppMotor;
+
+/*运动方向控制序列*/
+enum SmartRobotCarMotionControl
+{
+  Forward,       //(1)
+  Backward,      //(2)
+  Left,          //(3)
+  Right,         //(4)
+  LeftForward,   //(5)
+  LeftBackward,  //(6)
+  RightForward,  //(7)
+  RightBackward, //(8)
+  stop_it        //(9)
+};               //direction方向:（1）、（2）、 （3）、（4）、（5）、（6）
+
+struct Application_xxx
+{
+  SmartRobotCarMotionControl Motion_Control;
+};
+
+extern Application_xxx Application_SmartRobotCarxxx0;
+
+static void ApplicationFunctionSet_SmartRobotCarMotionControl(SmartRobotCarMotionControl direction, uint8_t is_speed)
+{
+  static uint8_t directionRecord = 0;
+  uint8_t Kp, UpperLimit;
+  uint8_t speed = is_speed;
+  switch (direction)
+  {
+  case /* constant-expression */
+      Forward:
+    /* code */
+      AppMotor.DeviceDriverSet_Motor_control(/*direction_A*/ direction_just, /*speed_A*/ speed,
+                                             /*direction_B*/ direction_just, /*speed_B*/ speed, /*controlED*/ control_enable); //Motor control
+    break;
+  case /* constant-expression */ Backward:
+    /* code */
+
+      AppMotor.DeviceDriverSet_Motor_control(/*direction_A*/ direction_back, /*speed_A*/ speed,
+                                             /*direction_B*/ direction_back, /*speed_B*/ speed, /*controlED*/ control_enable); //Motor control
+    break;
+  case /* constant-expression */ Left:
+   
+    AppMotor.DeviceDriverSet_Motor_control(/*direction_A*/ direction_just, /*speed_A*/ speed,
+                                           /*direction_B*/ direction_back, /*speed_B*/ speed, /*controlED*/ control_enable); //Motor control
+    break;
+  case /* constant-expression */ Right:
+    
+    AppMotor.DeviceDriverSet_Motor_control(/*direction_A*/ direction_back, /*speed_A*/ speed,
+                                           /*direction_B*/ direction_just, /*speed_B*/ speed, /*controlED*/ control_enable); //Motor control
+    break;
+  case /* constant-expression */ LeftForward:
+    /* code */
+    AppMotor.DeviceDriverSet_Motor_control(/*direction_A*/ direction_just, /*speed_A*/ speed,
+                                           /*direction_B*/ direction_just, /*speed_B*/ speed / 2, /*controlED*/ control_enable); //Motor control
+    break;
+  case /* constant-expression */ LeftBackward:
+    AppMotor.DeviceDriverSet_Motor_control(/*direction_A*/ direction_back, /*speed_A*/ speed,
+                                           /*direction_B*/ direction_back, /*speed_B*/ speed / 2, /*controlED*/ control_enable); //Motor control
+    break;
+  case /* constant-expression */ RightForward:
+    AppMotor.DeviceDriverSet_Motor_control(/*direction_A*/ direction_just, /*speed_A*/ speed / 2,
+                                           /*direction_B*/ direction_just, /*speed_B*/ speed, /*controlED*/ control_enable); //Motor control
+    break;
+  case /* constant-expression */ RightBackward:
+    AppMotor.DeviceDriverSet_Motor_control(/*direction_A*/ direction_back, /*speed_A*/ speed / 2,
+                                           /*direction_B*/ direction_back, /*speed_B*/ speed, /*controlED*/ control_enable); //Motor control
+    break;
+  case /* constant-expression */ stop_it:
+    AppMotor.DeviceDriverSet_Motor_control(/*direction_A*/ direction_void, /*speed_A*/ 0,
+                                           /*direction_B*/ direction_void, /*speed_B*/ 0, /*controlED*/ control_enable); //Motor control
+    break;
+  default:
+    break;
+  }
+}
+```
 
 
