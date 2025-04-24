@@ -4,11 +4,11 @@ MAKE SURE TO PULL REQUEST BEFORE MAKING CHANGES TO THE CODE TO MAKE SURE U DONT 
 
 MAKE SURE TO COMMIT + PUSH YOUR CHANGES ONCE YOU ARE DONE EDITING THE CODE!
 
-###  1. Requirements: 
+##  1. Requirements: 
 - Navigate the Lunar Highway: Drive along a predetermined path (the "Lunar Highway") without veering off course.
 - Obstacle Avoidance: Detect and avoid moon rocks of various sizes  scattered along the path.
 - Alert System (Challenge Goal): Implement a warning system to alert mission control of any obstacles or challenges encountered
-### 2. Ideas:
+## 2. Ideas:
 - Ultrasonic Sensor: Used as an obstacle avoidance tool. The ultrasonic sensor should detect the object within a foot from it to ensure that there are no errors.
 - Infrared sensor: Use the black lines in to move
     - If only the left infrared sensor detects black lines, move the robot towards the left side.
@@ -18,8 +18,8 @@ MAKE SURE TO COMMIT + PUSH YOUR CHANGES ONCE YOU ARE DONE EDITING THE CODE!
     - If the robot goes back where it came from,
 - LED: Use the LED for the challenge problem, if the ultrasonic sensor  detects an object in front the robot then it will flash the LED red for until the robot does not detect the object anymore. 
 - When the Robot reaches the end make the LED flash green to show that it made it.
-### 3. Research:
-## Pseudo Code: 
+## 3. Research:
+### Pseudo Code: 
 - Instructions: 
 Where to start it
 
