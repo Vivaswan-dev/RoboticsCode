@@ -20,10 +20,10 @@ MAKE SURE TO COMMIT + PUSH YOUR CHANGES ONCE YOU ARE DONE EDITING THE CODE!
 - When the Robot reaches the end make the LED flash green to show that it made it.
 ## 3. Research:
 ### Pseudo Code: 
-- Instructions: 
-Where to start it
+Instructions: 
+Start the distance counter or timer when either the right or left infrared sensor detects the black line
 
-Line following measure distance 
+Line following measure distance. Use the infrared sensor to shift left/right to stay on the black line and move forward.
 
 if line following reaches the distance or time stop it 
 
