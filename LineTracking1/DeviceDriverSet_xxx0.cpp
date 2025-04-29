@@ -20,3 +20,4 @@ float DeviceDriverSet_ITR20001::DeviceDriverSet_ITR20001_getAnaloguexxx_R(void)
 {
   return analogRead(PIN_ITR20001xxxR);
 }
+/*Send*/
