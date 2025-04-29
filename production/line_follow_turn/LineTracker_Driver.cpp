@@ -6,7 +6,7 @@ bool DeviceDriverSet_ITR20001::DeviceDriverSet_ITR20001_Init(void)
   pinMode(PIN_ITR20001xxxL, INPUT);
   pinMode(PIN_ITR20001xxxM, INPUT);
   pinMode(PIN_ITR20001xxxR, INPUT);
-  return false;
+  return true;
 }
 float DeviceDriverSet_ITR20001::DeviceDriverSet_ITR20001_getAnaloguexxx_L(void)
 {
