@@ -1,0 +1,12 @@
+Move 48cm
+turn 45 degrees left
+move 26.5cm 
+turn 40 degrees right 
+move 22 cm forward turn 40 degrees right 
+move 36cm forwardturn 45 degress left
+move 34 cm forward
+turn 45 degrees right
+move forward 19cm
+turn 90 degrees left 
+turn right 50 degrees 
+go 22cm forward

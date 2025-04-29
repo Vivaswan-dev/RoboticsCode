@@ -5,19 +5,78 @@
 DeviceDriverSet_Motor AppMotor;
 Application_xxx Application_SmartRobotCarxxx0;
 
+enum SmartRobotCarMotionControl {
+  Forward = 0,
+  Backward = 1,
+  Left = 2,
+  Right = 3,
+  LeftForward = 4,
+  LeftBackward = 5,
+  RightForward = 6,
+  RightBackward = 7,
+  stop_it = 8
+};
+
 void setup() {
   AppMotor.DeviceDriverSet_Motor_Init();
   delay(2000);
-  for (Application_SmartRobotCarxxx0.Motion_Control = 0; Application_SmartRobotCarxxx0.Motion_Control < 9; Application_SmartRobotCarxxx0.Motion_Control = Application_SmartRobotCarxxx0.Motion_Control + 1)
-  {
-    ApplicationFunctionSet_SmartRobotCarMotionControl(Application_SmartRobotCarxxx0.Motion_Control /*direction*/, 200 /*speed*/);
-    delay(1000);
-  }
+
+  ApplicationFunctionSet_SmartRobotCarMotionControl(Forward, 200);
+  delay(2000);
+  ApplicationFunctionSet_SmartRobotCarMotionControl(stop_it, 0);
+
+  ApplicationFunctionSet_SmartRobotCarMotionControl(Left, 200);
+  delay(500);
+  ApplicationFunctionSet_SmartRobotCarMotionControl(stop_it, 0);
+
+  ApplicationFunctionSet_SmartRobotCarMotionControl(Forward, 200);
+  delay(1200);
+  ApplicationFunctionSet_SmartRobotCarMotionControl(stop_it, 0);
+
+  ApplicationFunctionSet_SmartRobotCarMotionControl(Right, 200);
+  delay(450);
+  ApplicationFunctionSet_SmartRobotCarMotionControl(stop_it, 0);
+
+  ApplicationFunctionSet_SmartRobotCarMotionControl(Forward, 200);
+  delay(1000);
+  ApplicationFunctionSet_SmartRobotCarMotionControl(stop_it, 0);
+
+  ApplicationFunctionSet_SmartRobotCarMotionControl(Right, 200);
+  delay(450);
+  ApplicationFunctionSet_SmartRobotCarMotionControl(stop_it, 0);
+
+  ApplicationFunctionSet_SmartRobotCarMotionControl(Forward, 200);
+  delay(1600);
+  ApplicationFunctionSet_SmartRobotCarMotionControl(stop_it, 0);
+
+  ApplicationFunctionSet_SmartRobotCarMotionControl(Left, 200);
+  delay(500);
+  ApplicationFunctionSet_SmartRobotCarMotionControl(stop_it, 0);
+
+  ApplicationFunctionSet_SmartRobotCarMotionControl(Forward, 200);
+  delay(1500);
+  ApplicationFunctionSet_SmartRobotCarMotionControl(stop_it, 0);
+
+  ApplicationFunctionSet_SmartRobotCarMotionControl(Right, 200);
+  delay(500);
+  ApplicationFunctionSet_SmartRobotCarMotionControl(stop_it, 0);
+
+  ApplicationFunctionSet_SmartRobotCarMotionControl(Forward, 200);
+  delay(900);
+  ApplicationFunctionSet_SmartRobotCarMotionControl(stop_it, 0);
+
+  ApplicationFunctionSet_SmartRobotCarMotionControl(Left, 200);
+  delay(1000);
+  ApplicationFunctionSet_SmartRobotCarMotionControl(stop_it, 0);
+
+  ApplicationFunctionSet_SmartRobotCarMotionControl(Right, 200);
+  delay(550);
+  ApplicationFunctionSet_SmartRobotCarMotionControl(stop_it, 0);
+
+  ApplicationFunctionSet_SmartRobotCarMotionControl(Forward, 200);
+  delay(1000);
+  ApplicationFunctionSet_SmartRobotCarMotionControl(stop_it, 0);
 }
 
 void loop() {
-
-
-
-
 }
