@@ -5,18 +5,6 @@
 DeviceDriverSet_Motor AppMotor;
 Application_xxx Application_SmartRobotCarxxx0;
 
-enum SmartRobotCarMotionControl {
-  Forward = 0,
-  Backward = 1,
-  Left = 2,
-  Right = 3,
-  LeftForward = 4,
-  LeftBackward = 5,
-  RightForward = 6,
-  RightBackward = 7,
-  stop_it = 8
-};
-
 void setup() {
   AppMotor.DeviceDriverSet_Motor_Init();
   delay(2000);
