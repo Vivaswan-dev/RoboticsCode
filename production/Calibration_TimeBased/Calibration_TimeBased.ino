@@ -71,7 +71,7 @@ void followLine() {
 
 void setup() {
   Serial.begin(115200);
-  while (!Serial);
+  // while (!Serial); // Wait for Serial connection <-- Commented out
 
   Serial.println("Initializing Motors...");
   Motors.DeviceDriverSet_Motor_Init();

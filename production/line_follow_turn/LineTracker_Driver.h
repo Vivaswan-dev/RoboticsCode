@@ -15,13 +15,13 @@ public:
 
 private:
 //03
-// #define PIN_ITR20001xxxL A0
-// #define PIN_ITR20001xxxM A1
-// #define PIN_ITR20001xxxR A2
-//04
-#define PIN_ITR20001xxxL A2
+#define PIN_ITR20001xxxL A0
 #define PIN_ITR20001xxxM A1
-#define PIN_ITR20001xxxR A0
+#define PIN_ITR20001xxxR A2
+//04
+// #define PIN_ITR20001xxxL A2
+// #define PIN_ITR20001xxxM A1
+// #define PIN_ITR20001xxxR A0
 };
 
 #endif
