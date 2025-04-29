@@ -1,3 +1,4 @@
+#include "ApplicationFunctionSet_xxx0.h"
 #include "DeviceDriverSet_xxx0.h"
 
 extern DeviceDriverSet_Motor AppMotor;
