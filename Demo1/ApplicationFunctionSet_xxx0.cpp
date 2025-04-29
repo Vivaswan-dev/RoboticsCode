@@ -3,24 +3,7 @@
 
 extern DeviceDriverSet_Motor AppMotor;
 
-/*运动方向控制序列*/
-enum SmartRobotCarMotionControl
-{
-  Forward,       //(1)
-  Backward,      //(2)
-  Left,          //(3)
-  Right,         //(4)
-  LeftForward,   //(5)
-  LeftBackward,  //(6)
-  RightForward,  //(7)
-  RightBackward, //(8)
-  stop_it        //(9)
-};               //direction方向:（1）、（2）、 （3）、（4）、（5）、（6）
-
-struct Application_xxx
-{
-  SmartRobotCarMotionControl Motion_Control;
-};
+/* The enum and struct definitions are now in the .h file */
 
 extern Application_xxx Application_SmartRobotCarxxx0;
 
