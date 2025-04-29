@@ -1,22 +1,70 @@
 #include <avr/wdt.h>
 #include "DeviceDriverSet_xxx0.h"
-#include "ApplicationFunctionSet_xxx0.h"
+#include "ApplicationFunctionSet_xxx0.cpp"
 
 DeviceDriverSet_Motor AppMotor;
 Application_xxx Application_SmartRobotCarxxx0;
 
 void setup() {
   AppMotor.DeviceDriverSet_Motor_Init();
-  delay(2000); // Initial 2-second pause
+  delay(2000);
 
-  // Run forward at speed 200 for 5 seconds (5000 milliseconds)
   ApplicationFunctionSet_SmartRobotCarMotionControl(Forward, 200);
-  delay(5000);
-  ApplicationFunctionSet_SmartRobotCarMotionControl(stop_it, 0); // Stop after 5 seconds
+  delay(2000);
+  ApplicationFunctionSet_SmartRobotCarMotionControl(stop_it, 0);
 
-  // End of setup sequence
+  ApplicationFunctionSet_SmartRobotCarMotionControl(Left, 200);
+  delay(500);
+  ApplicationFunctionSet_SmartRobotCarMotionControl(stop_it, 0);
+
+  ApplicationFunctionSet_SmartRobotCarMotionControl(Forward, 200);
+  delay(1200);
+  ApplicationFunctionSet_SmartRobotCarMotionControl(stop_it, 0);
+
+  ApplicationFunctionSet_SmartRobotCarMotionControl(Right, 200);
+  delay(450);
+  ApplicationFunctionSet_SmartRobotCarMotionControl(stop_it, 0);
+
+  ApplicationFunctionSet_SmartRobotCarMotionControl(Forward, 200);
+  delay(1000);
+  ApplicationFunctionSet_SmartRobotCarMotionControl(stop_it, 0);
+
+  ApplicationFunctionSet_SmartRobotCarMotionControl(Right, 200);
+  delay(450);
+  ApplicationFunctionSet_SmartRobotCarMotionControl(stop_it, 0);
+
+  ApplicationFunctionSet_SmartRobotCarMotionControl(Forward, 200);
+  delay(1600);
+  ApplicationFunctionSet_SmartRobotCarMotionControl(stop_it, 0);
+
+  ApplicationFunctionSet_SmartRobotCarMotionControl(Left, 200);
+  delay(500);
+  ApplicationFunctionSet_SmartRobotCarMotionControl(stop_it, 0);
+
+  ApplicationFunctionSet_SmartRobotCarMotionControl(Forward, 200);
+  delay(1500);
+  ApplicationFunctionSet_SmartRobotCarMotionControl(stop_it, 0);
+
+  ApplicationFunctionSet_SmartRobotCarMotionControl(Right, 200);
+  delay(500);
+  ApplicationFunctionSet_SmartRobotCarMotionControl(stop_it, 0);
+
+  ApplicationFunctionSet_SmartRobotCarMotionControl(Forward, 200);
+  delay(900);
+  ApplicationFunctionSet_SmartRobotCarMotionControl(stop_it, 0);
+
+  ApplicationFunctionSet_SmartRobotCarMotionControl(Left, 200);
+  delay(1000);
+  ApplicationFunctionSet_SmartRobotCarMotionControl(stop_it, 0);
+
+  ApplicationFunctionSet_SmartRobotCarMotionControl(Right, 200);
+  delay(550);
+  ApplicationFunctionSet_SmartRobotCarMotionControl(stop_it, 0);
+
+  ApplicationFunctionSet_SmartRobotCarMotionControl(Forward, 200);
+  delay(1000);
+  ApplicationFunctionSet_SmartRobotCarMotionControl(stop_it, 0);
 }
 
 void loop() {
-  // Keep loop empty
 }

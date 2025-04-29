@@ -10,3 +10,9 @@ move forward 19cm
 turn 90 degrees left 
 turn right 50 degrees 
 go 22cm forward
+
+In 2 seconds it traveled 57 inches 
+
+200 rpm 52 inches for 2 seconds 
+
+2 seconds traveled 52 inches with 200 RPM 
