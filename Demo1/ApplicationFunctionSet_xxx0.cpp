@@ -7,7 +7,7 @@ extern DeviceDriverSet_Motor AppMotor;
 
 extern Application_xxx Application_SmartRobotCarxxx0;
 
-static void ApplicationFunctionSet_SmartRobotCarMotionControl(SmartRobotCarMotionControl direction, uint8_t is_speed)
+void ApplicationFunctionSet_SmartRobotCarMotionControl(SmartRobotCarMotionControl direction, uint8_t is_speed)
 {
   static uint8_t directionRecord = 0;
   uint8_t Kp, UpperLimit;
