@@ -73,3 +73,47 @@ void DeviceDriverSet_Motor::DeviceDriverSet_Motor_control(boolean direction_A, u
     return;
   }
 }
+
+// ============= Ultrasonic Sensor Implementations =============
+
+void DeviceDriverSet_ULTRASONIC::DeviceDriverSet_ULTRASONIC_Init(void)
+{
+  pinMode(ECHO_PIN, INPUT); //Ultrasonic module initialization
+  pinMode(TRIG_PIN, OUTPUT);
+}
+
+void DeviceDriverSet_ULTRASONIC::DeviceDriverSet_ULTRASONIC_Get(uint16_t *ULTRASONIC_Get /*out*/)
+{
+  unsigned long duration_us; // Use unsigned long for pulseIn duration
+  unsigned int distance_cm;
+  
+  // Generate the trigger pulse
+  digitalWrite(TRIG_PIN, LOW);
+  delayMicroseconds(2);
+  digitalWrite(TRIG_PIN, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(TRIG_PIN, LOW);
+  
+  // Read the echo pulse duration (with a timeout to prevent hangs)
+  // Timeout should be based on MAX_DISTANCE: MAX_DISTANCE * 58 us (approx round trip time in us/cm)
+  // Example: 200cm * 58 us/cm = 11600 us. Use a slightly larger timeout.
+  duration_us = pulseIn(ECHO_PIN, HIGH, 15000UL); // 15ms timeout
+  
+  // Calculate distance if a valid pulse was received (duration > 0)
+  if (duration_us > 0) {
+      distance_cm = duration_us / 58; // Formula from datasheet/common practice
+  } else {
+      distance_cm = 0; // Indicate timeout or no echo
+  }
+
+  // Optional: Clamp to MAX_DISTANCE if needed by application
+  // if (distance_cm > MAX_DISTANCE || distance_cm == 0) {
+  //   *ULTRASONIC_Get = MAX_DISTANCE; // Or some other indicator of out-of-range
+  // } else {
+  //   *ULTRASONIC_Get = distance_cm;
+  // }
+  
+   *ULTRASONIC_Get = distance_cm; // Return calculated distance (0 if timeout/error)
+}
+
+// Note: DeviceDriverSet_ULTRASONIC_Test function is omitted as it's not used in Demo1

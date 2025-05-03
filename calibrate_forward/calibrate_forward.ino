@@ -5,36 +5,37 @@
 DeviceDriverSet_Motor AppMotor;
 Application_xxx Application_SmartRobotCarxxx0;
 
-// Define the motion control enum values if they are not automatically available
-// (Remove this if ApplicationFunctionSet_xxx0.cpp defines them globally)
-/*
-enum SmartRobotCarMotionControl {
-  Forward = 0, Backward = 1, Left = 2, Right = 3,
-  LeftForward = 4, LeftBackward = 5, RightForward = 6, RightBackward = 7,
-  stop_it = 8
-};
-*/
-
-// Calculated from 1000ms -> 35.25 inches (89.535 cm)
 #define FORWARD_MS_PER_CM 11.17
 
+const float TARGET_DISTANCE_CM = 41.0;
+const int TEST_DELAY_MS = 540;
+
 void setup() {
-  Serial.begin(9600); // Initialize Serial communication
-  while (!Serial); // Wait for Serial port to connect (needed for some boards like Leonardo)
-  Serial.println("Starting Forward Calibration Test...");
+  Serial.begin(9600);
+  while (!Serial);
+  Serial.println("---------------------------------");
+  Serial.print("Starting Forward Calibration for ");
+  Serial.print(TARGET_DISTANCE_CM);
+  Serial.println(" cm");
+  Serial.print("Testing Delay: ");
+  Serial.print(TEST_DELAY_MS);
+  Serial.println(" ms");
+  Serial.println("---------------------------------");
+
 
   AppMotor.DeviceDriverSet_Motor_Init();
-  delay(2000); // Wait 2 seconds before starting
+  delay(2000);
 
-  Serial.println("Moving forward for 1000ms...");
-  // Calibration: Move Forward for 1 second (1000ms) at speed 200
+  Serial.println("Moving forward...");
   ApplicationFunctionSet_SmartRobotCarMotionControl(Forward, 200);
-  delay(1000);
-  ApplicationFunctionSet_SmartRobotCarMotionControl(stop_it, 0); // Stop
-  Serial.println("Movement complete. Measure distance.");
-  Serial.println("Calculate: ms_per_cm = 1000 / distance_in_cm");
+  delay(TEST_DELAY_MS);
+  ApplicationFunctionSet_SmartRobotCarMotionControl(stop_it, 0);
+  Serial.println("Movement complete.");
+  Serial.print("Measure actual distance. Target was: ");
+  Serial.print(TARGET_DISTANCE_CM);
+  Serial.println(" cm");
+  Serial.println("Adjust TEST_DELAY_MS and re-run if needed.");
 }
 
 void loop() {
-  // Nothing needed
-} 
+}

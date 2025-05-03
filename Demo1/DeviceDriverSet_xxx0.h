@@ -3,6 +3,8 @@
 
 #include <arduino.h>
 
+// ============= Motor Control Definitions =============
+
 /*Motor*/
 class DeviceDriverSet_Motor
 {
@@ -33,6 +35,24 @@ public:
 #define Duration_disable false
 #define control_enable true
 #define control_disable false
+};
+
+// ============= Ultrasonic Sensor Definitions =============
+
+/*ULTRASONIC*/
+#define TRIG_PIN 13      // Arduino pin tied to trigger pin on the ultrasonic sensor.
+#define ECHO_PIN 12      // Arduino pin tied to echo pin on the ultrasonic sensor.
+#define MAX_DISTANCE 200 // Maximum distance we want to ping for (in centimeters).
+
+class DeviceDriverSet_ULTRASONIC
+{
+public:
+  void DeviceDriverSet_ULTRASONIC_Init(void);
+  // void DeviceDriverSet_ULTRASONIC_Test(void); // Test function not needed in Demo1
+  void DeviceDriverSet_ULTRASONIC_Get(uint16_t *ULTRASONIC_Get /*out*/);
+
+private:
+  // Pins defined above
 };
 
 #endif
